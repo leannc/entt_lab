@@ -3,15 +3,10 @@
 //
 
 #pragma once
-#include "entt.hpp"
-#include <chrono>
-#include <thread>
-#include <iostream>
 
+#include "entt.hpp"
 class Scene {
 public:
-    void use_case_scheduler();
-
 
 public:
     entt::registry m_Registry;

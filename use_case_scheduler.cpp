@@ -2,7 +2,7 @@
 // Created by wangkang on 2023/10/2.
 //
 
-#include "Scene.h"
+#include "UseCase.h"
 
 struct my_process: entt::process<my_process, std::uint32_t> {
     using delta_type = std::uint32_t;
@@ -61,8 +61,12 @@ void lambda_succeed()
 /**
  * schedular都是在一个线程里面完成的，执行顺序是LIFO，也就是最后attach的最先执行.
  * 在chain process的时候，只有上一个是succeed，才会执行后面所有的。
+ *
+ * 所有的chain process，都被打包认为是一个scheduler成员
+ *
+ * 一个执行完以后，scheduler的size会减少。
  * */
-void Scene::use_case_scheduler() {
+void use_case_scheduler() {
 
     entt::scheduler<std::uint32_t> scheduler;
 
@@ -82,8 +86,7 @@ void Scene::use_case_scheduler() {
     scheduler.attach<my_process>(1000u);
     scheduler.attach<my_process>(1001u);
 
-    size = scheduler.size();
-    std::cout<<"scheduler size " << size << std::endl;
+    std::cout<<"scheduler size " <<  scheduler.size() << std::endl;
 
 // schedules a task in the form of a lambda function
     scheduler.attach([](auto delta, void *, auto succeed, auto fail) {
@@ -105,18 +108,18 @@ void Scene::use_case_scheduler() {
             .then<my_process>(1002u);
 
 
-    size = scheduler.size();
-    std::cout<<"scheduler size " << size << std::endl;
+    std::cout<<"scheduler size " <<  scheduler.size() << std::endl;
 
     std::cout<<"------------start-------------------"<<std::endl;
     while (true)
     {
         // updates all the processes, no user data are provided
         scheduler.update(100, nullptr);
-
+        std::cout<<"scheduler size " <<  scheduler.size() << std::endl;
         //判断scheduler是否已经全部结束
         if(scheduler.empty())
         {
+            std::cout<<"scheduler empty " <<  std::endl;
             break;
         }
 

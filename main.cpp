@@ -1,10 +1,11 @@
 
-#include "Scene.h"
+#include "UseCase.h"
+
 
 int main() {
 
-    Scene scene;
-    scene.use_case_scheduler();
+    use_case_std_any();
     return 0;
+
 }
 
