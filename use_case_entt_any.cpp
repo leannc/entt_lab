@@ -6,6 +6,7 @@
 
 void use_case_entt_any()
 {
+
     ///这个可以自定义一个any，设置small buffer optimization的大小。
     using my_any = entt::basic_any<sizeof(double[4])>;
     using my_any_alignment = entt::basic_any<sizeof(double[4]), alignof(double[4])>;

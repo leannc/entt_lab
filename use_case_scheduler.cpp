@@ -68,14 +68,14 @@ void lambda_succeed()
  * */
 void use_case_scheduler() {
 
-    entt::scheduler<std::uint32_t> scheduler;
+    entt::basic_scheduler<std::uint32_t> scheduler;
 
     // checks if there are processes still running
     const auto empty = scheduler.empty();
     std::cout<<"scheduler empty " << empty << std::endl;
 
 // gets the number of processes still running
-    entt::scheduler<std::uint32_t>::size_type size = scheduler.size();
+    entt::basic_scheduler<std::uint32_t>::size_type size = scheduler.size();
     std::cout<<"scheduler size " << size << std::endl;
 
 
