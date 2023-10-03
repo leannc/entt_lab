@@ -41,8 +41,9 @@ int main() {
 //    CALL_USE_CASE(use_case_registry_organizer);
 //    CALL_USE_CASE(use_case_registry_ctx_variables);
 //    CALL_USE_CASE(use_case_registry_snapshot_for_serialization);
-    CALL_USE_CASE(use_case_registry_group);
+//    CALL_USE_CASE(use_case_registry_group);
 //    CALL_USE_CASE(use_case_registry_view);
+    CALL_USE_CASE(use_case_registry_delegate);
     return 0;
 
 }

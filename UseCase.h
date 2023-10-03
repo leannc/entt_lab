@@ -30,3 +30,4 @@ void use_case_registry_ctx_variables();
 void use_case_registry_snapshot_for_serialization();
 void use_case_registry_group();
 void use_case_registry_view();
+void use_case_registry_delegate();

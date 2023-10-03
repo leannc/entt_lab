@@ -13,7 +13,7 @@ add_executable(entt_lab main.cpp Scene.cpp Scene.h
         use_case_registry_observe_changes.cpp use_case_registry_observer.cpp
         use_case_registry_helpers.cpp use_case_registry_organizer.cpp
 
-        use_case_registry_ctx_variables.cpp use_case_registry_snapshot_for_serialization.cpp use_case_registry_group.cpp use_case_registry_view.cpp)
+        use_case_registry_ctx_variables.cpp use_case_registry_snapshot_for_serialization.cpp use_case_registry_group.cpp use_case_registry_view.cpp use_case_registry_delegate.cpp)
 
 target_include_directories(${PROJECT_NAME}
         PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/vendor/entt/include
